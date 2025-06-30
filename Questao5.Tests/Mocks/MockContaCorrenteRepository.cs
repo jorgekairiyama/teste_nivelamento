@@ -87,6 +87,33 @@ public static class MockContaCorrenteRepository
 
         });
 
+        mockRepo.Setup(r => r.PostMovimento(It.IsAny<Movimento>(), It.IsAny<int>())).ReturnsAsync((Movimento mov, int nCC) =>
+        {
+            var cc = contaCorrente.FirstOrDefault(cc => cc.Numero == nCC);
+            if (cc is null)
+            {
+                return new Error(Code: ErrorType.NotFound, Message: "INVALID_ACCOUNT");
+            }
+            if (!cc.Ativo)
+            {
+                return new Error(Code: ErrorType.Conflict, Message: "INACTIVE_ACCOUNT");
+            }
+            if (mov.Valor <= 0)
+            {
+                return new Error(Code: ErrorType.Validation, Message: "INVALID_VALUE");
+            }
+            if (mov.TipoMovimento != 'C' && mov.TipoMovimento != 'D')
+            {
+                return new Error(Code: ErrorType.Validation, Message: "INVALID_TYPE");
+            }
+
+            mov.IdMovimento = Guid.NewGuid().ToString();
+            mov.IdContaCorrente = cc.IdContaCorrente;
+            mov.DataMovimento = DateTime.Now;
+            movimento.Add(mov);
+
+            return mov;
+        });
         return mockRepo;
     }
 }
