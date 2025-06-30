@@ -10,7 +10,5 @@ namespace Questao5.Domain.Repositories.Interfaces
         Task<OneOf<Saldo, Error>> GetSaldo(int numeroContaCorrente);
         Task<OneOf<Movimento, Error>> PostMovimento(Movimento movimento, int NumeroContaCorrente);
 
-        //Task<(bool esValido, ContaCorrente? contaCorrente, string msgError, ErrorType code)> EValidoContaCorrente(int numeroContaCorrente);
-
     }
 }

@@ -1,5 +1,4 @@
 using Mapster;
-using MapsterMapper;
 using MediatR;
 using questao5.Infrastructure.Repositories;
 using Questao5.Api.Mapping;
@@ -21,7 +20,6 @@ builder.Services.AddSingleton(new DatabaseConfig { Name = builder.Configuration.
 builder.Services.AddSingleton<IDatabaseBootstrap, DatabaseBootstrap>();
 builder.Services.AddScoped<IContaCorrenteDataService, ContaCorrenteDataService>();
 builder.Services.AddScoped<IContaCorrenteRepository, ContaCorrenteRepository>();
-//builder.Services.AddScoped<IContaCorrenteService, ContaCorrenteService>();
 builder.Services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
 builder.Services.AddMappings();
@@ -39,7 +37,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

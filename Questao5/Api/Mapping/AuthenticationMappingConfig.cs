@@ -13,9 +13,5 @@ public class AuthenticationMappingConfig : IRegister
         config.NewConfig<SaldoResponse, Saldo>();
         config.NewConfig<Movimento, InsertMovimentoCommand>();
         config.NewConfig<MovimentoResponse, Movimento>();
-
-        // config.NewConfig<AuthenticationResult, AuthenticationResponse>()
-        //     .Map(dest => dest.Token, src => src.Token)
-        //     .Map(dest => dest, src => src.User);
     }
 }

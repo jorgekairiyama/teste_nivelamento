@@ -2,14 +2,6 @@ namespace Questao5.Domain.Entities
 {
     public class Saldo
     {
-        // public Saldo(string idContaCorrente, int numero, string nome, decimal valor)
-        // {
-        //     IdContaCorrente = idContaCorrente;
-        //     Numero = numero;
-        //     Nome = nome;
-        //     Valor = valor;
-        // }
-
         public string IdContaCorrente { get; set; } = string.Empty;
         public int Numero { get; set; }
         public string Nome { get; set; } = string.Empty;
