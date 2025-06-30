@@ -1,4 +1,3 @@
-using System.Diagnostics.Contracts;
 using System.Reflection;
 using Mapster;
 using MapsterMapper;
@@ -35,7 +34,7 @@ public class GetContaCorrenteQueryHandlerTest
 
         result.IsT0.ShouldBeTrue();
 
-        result.IsT0.ShouldBeOfType<ContaCorrenteResponse>();
+        result.AsT0.ShouldBeOfType<ContaCorrenteResponse>();
 
     }
 }

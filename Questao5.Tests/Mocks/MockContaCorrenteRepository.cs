@@ -1,5 +1,3 @@
-﻿
-using Microsoft.AspNetCore.Http;
 using Moq;
 using OneOf;
 using Questao5.Application.Common;
